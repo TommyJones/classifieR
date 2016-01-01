@@ -1,0 +1,3 @@
+useDynLib(classifieR)
+exportPattern("^[[:alpha:]]+")
+importFrom(randomForest, randomForest)

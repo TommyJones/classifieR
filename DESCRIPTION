@@ -1,0 +1,17 @@
+Package: classifieR
+Type: Package
+Title: Utilities and functions for classification
+Version: 0.0.0.9000
+Date: 2016-01-01
+Author: Thomas W. Jones <jones.thos.w@gmail.com>
+Maintainer: Thomas W. Jones <jones.thos.w@gmail.com>
+Description: Utilities and functions for classification.
+Depends:
+    R (>= 3.0.2),
+Imports:
+   randomForest,
+   e1071
+LinkingTo:
+License: GPL (>= 3)
+LazyData: true
+LazyData: TRUE
