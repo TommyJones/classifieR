@@ -142,7 +142,7 @@ RfEffectSize <- function(forest, training_data, varlist = NULL, ...){
     # If there is little or no variability in the y variable, exit early
     if(forest$type == "classification"){ # y is discrete
       if(length(unique(d1$y)) == 1 | length(unique(d2$y)) == 1){
-        result <- HandleError(variable = variable, level_name = level_name, error_type = 2)
+        result <- HandleError(variable = variable, level_name = level_name, error_type = 1)
         result <- lapply(levels(forest$y), function(x){
           result[[ 1 ]]
         })
@@ -228,7 +228,7 @@ RfEffectSize <- function(forest, training_data, varlist = NULL, ...){
       if(length(unique(d1$y)) == 1 | length(unique(d2$y)) == 1){
         result <- lapply(var_levels, function(j){
           r <- lapply(levels(forest$y), function(k){
-            HandleError(variable = variable, level_name = j, error_type = 2)[[ 1 ]]
+            HandleError(variable = variable, level_name = j, error_type = 1)[[ 1 ]]
           })
           names(r) <- levels(forest$y)
           r
@@ -290,7 +290,6 @@ RfEffectSize <- function(forest, training_data, varlist = NULL, ...){
       d2 <- d2[ , c("y", setdiff(varlist, variable)) ]
 
       # If there is little or no variability in the variable, exit early
-      # If there is little or no variability in the variable, exit early
       if(nrow(d1) < 5 | nrow(d2) < 5){
         if(forest$type == "classification"){
           result <- HandleError(variable = variable, level_name = x, error_type = 2)
@@ -308,7 +307,7 @@ RfEffectSize <- function(forest, training_data, varlist = NULL, ...){
       # If there is little or no variability in the y variable, exit early
       if(forest$type == "classification"){ # y is discrete
         if(length(unique(d1$y)) == 1 | length(unique(d2$y)) == 1){
-          result <- HandleError(variable = variable, level_name = x, error_type = 2)
+          result <- HandleError(variable = variable, level_name = x, error_type = 1)
           result <- lapply(levels(forest$y), function(x){
             result[[ 1 ]]
           })
